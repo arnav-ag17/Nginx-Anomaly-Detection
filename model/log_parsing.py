@@ -2,6 +2,7 @@ import pandas as pd
 import re
 import numpy as np
 
+# Parsing Nginx access logs using regex pattern matching
 def parse_log(file_path):
     pattern = re.compile(r'(\d+\.\d+\.\d+\.\d+)\|-\|\[(.*?)\]\|.*?\|\"(.*?)\"\|(\d+)\|(\d+)\|.*?\|.*?\|.*?\|(\d+\.\d+)\|-')
     log_data = []
@@ -39,6 +40,7 @@ def parse_log(file_path):
     
     return df
 
+# Data Aggregation
 def agg_df(df, interval='T'):
     df_copy = df.copy()
     df_copy.set_index('Timestamp', inplace=True)
